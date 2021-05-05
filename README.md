@@ -1,0 +1,3 @@
+# How to Embed XMP Metadata to the PDF Document
+
+The following code sample project demonstrates how to use [PDF Document API](https://www.devexpress.com/products/net/office-file-api/pdf/) to embed XMP metadata to PDF documents. The **EmbedLoadedMetadata** method loads metadata from a file, the **EmbedEditedMetadata** manages existing metadata, and the **EmbedGeneratedMetadata** method generates new XMP metadata and embeds it to a document.
