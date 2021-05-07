@@ -18,7 +18,7 @@ namespace XmpMetadataExamples
             using (PdfDocumentProcessor pdfDocumentProcessor = new PdfDocumentProcessor())
             {
 
-                //Load a document:
+                // Load a document:
                 pdfDocumentProcessor.LoadDocument("Documents//Invoice.pdf");
                 PdfDocument document = pdfDocumentProcessor.Document;
 
@@ -33,11 +33,11 @@ namespace XmpMetadataExamples
                     creators.Add("Office File API");
                 }
 
-                //Change the CreatorTool node value:
+                // Change the CreatorTool node value:
                 XmpSimpleNode creatorTool = editedMetadata.GetSimpleValue("xmp:CreatorTool");
                 creatorTool.SetValue("PDF Document API");
 
-                //Add MaxPageSize structure:
+                // Add MaxPageSize structure:
                 XmpName structureName = XmpName.Get("MaxPageSize", "http://ns.adobe.com/xap/1.0/t/pg/");
                 XmpStructure dimensions = editedMetadata.CreateStructure(structureName);
                 editedMetadata.RegisterNamespace("http://ns.adobe.com/xap/1.0/sType/Dimensions#", "stDim");
@@ -47,10 +47,10 @@ namespace XmpMetadataExamples
 
                 editedMetadata.Remove("dc:subject");
 
-                //Embed modified metadata to the document:
+                // Embed modified metadata to the document:
                 document.SetMetadata(editedMetadata);
 
-                //Save the result:
+                // Save the result:
                 pdfDocumentProcessor.SaveDocument("Invoice_Upd.pdf");
             }
         }
@@ -59,16 +59,16 @@ namespace XmpMetadataExamples
         {
             using (PdfDocumentProcessor pdfDocumentProcessor = new PdfDocumentProcessor())
             {
-                //Load a document:
+                // Load a document:
                 pdfDocumentProcessor.LoadDocument("Documents//Invoice_blank.pdf");
                 PdfDocument document = pdfDocumentProcessor.Document;
 
                 XmpDocument generatedMetadata = GenerateXmpMetadata();
 
-                //Embed modified metadata to the document:
+                // Embed modified metadata to the document:
                 document.SetMetadata(generatedMetadata);
 
-                //Save the result:
+                // Save the result:
                 pdfDocumentProcessor.SaveDocument("Invoice_new.pdf");
             }
         }
@@ -83,14 +83,14 @@ namespace XmpMetadataExamples
             document.RegisterNamespace("http://ns.adobe.com/pdf/1.3/", "pdf");
             document.RegisterNamespace("http://ns.adobe.com/xap/1.0/t/pg/", "xmpTPg");
 
-            //Add items with "xmp" prefix:
+            // Add items with "xmp" prefix:
             XmpArray array = document.CreateArray("xmp:Identifier", XmpArrayType.Unordered);
             array.Add("identifier1");
             array.Add("identifier2");
             array.Add("identifier3");
             document.CreateSimpleValue("xmp:Label", "Demo");
 
-            //Add items with the "pdf" prefix:
+            // Add items with the "pdf" prefix:
             document.Add("pdf:Keywords", "Invoice,Northwind,PDF,XMP");
             document.Add("pdf:Producer", "Developer Express Inc.DXperience(tm)");
             document.CreateSimpleValue("pdf:PDFVersion", "1.3");
@@ -126,7 +126,7 @@ namespace XmpMetadataExamples
         {
             XmpDocument metadata = new XmpDocument();
 
-            // Add items form the XMP basic schema:
+            // Add items from the XMP basic schema:
             XmpProperties basicSchema = metadata.XmpProperties;
             basicSchema.CreatorTool = "PDF Document API";
             basicSchema.Label = "Sample";
@@ -134,7 +134,7 @@ namespace XmpMetadataExamples
             basicSchema.Rating = "0";
 
 
-            // Add items form the Dublin Core schema:
+            // Add items from the Dublin Core schema:
             DublinCoreProperties dublinCoreProperties = metadata.DublinCoreProperties;
             dublinCoreProperties.Creator.Add("DevExpress");
             dublinCoreProperties.Description.AddString("This document has emdedded XMP metadata", "en-us");
@@ -142,22 +142,22 @@ namespace XmpMetadataExamples
             dublinCoreProperties.Type.Add("PDF");
             dublinCoreProperties.Publisher.Add("PDF Document API");
 
-            // Add items form the Adobe PDF schema:
+            // Add items from the Adobe PDF schema:
             AdobePdfProperties adobePdfProperties = metadata.PdfProperties;
             adobePdfProperties.Keywords = "Invoice, Northwind, PDF, XMP";
             adobePdfProperties.PDFVersion = "1.3";
             adobePdfProperties.Producer = "PDF Document API";
             adobePdfProperties.Trapped = false;
 
-            //Add items form the Rights Management schema:
-            XmpRightsManagementProperties rightsManagementSchema = metadata.XmpRightsManagementProperties;
+            // Add items from the Rights Management schema:
+            XmpRightsManagementProperties rightsManagementSchema = metadata.RightsManagementProperties;
             rightsManagementSchema.Certificate = "https://www.devexpress.com/";
             rightsManagementSchema.Owner.Add("DevExpress");
             rightsManagementSchema.Marked = true;
             rightsManagementSchema.WebStatement = "https://www.devexpress.com/support/eulas/";
             rightsManagementSchema.UsageTerms.AddString("Copyright(C) 2021 DevExpress.All Rights Reserved.", "x-default");
 
-            //Export generated metadata to the file:
+            // Export generated metadata to the file:
             metadata.Serialize(new FileStream("Documents//metadata_new.xml", FileMode.CreateNew, FileAccess.ReadWrite));
         }
     }
