@@ -137,7 +137,7 @@ Namespace XmpMetadataExamples
 			adobePdfProperties.Trapped = False
 
 			'Add items form the Rights Management schema:
-			Dim rightsManagementSchema As XmpRightsManagementProperties = metadata.XmpRightsManagementProperties
+			Dim rightsManagementSchema As XmpRightsManagementProperties = metadata.RightsManagementProperties
 			rightsManagementSchema.Certificate = "https://www.devexpress.com/"
 			rightsManagementSchema.Owner.Add("DevExpress")
 			rightsManagementSchema.Marked = True
