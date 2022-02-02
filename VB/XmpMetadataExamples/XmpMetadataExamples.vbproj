@@ -1,19 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <OptionExplicit>On</OptionExplicit>
-    <OptionCompare>Binary</OptionCompare>
-    <OptionStrict>Off</OptionStrict>
-    <OptionInfer>On</OptionInfer>
-    <RootNamespace />
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Document.Processor" Version="21.1.6" />
+    <PackageReference Include="DevExpress.Document.Processor" Version="21.1.7" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Documents\Invoice.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Documents\Invoice_blank.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Documents\Invoice_signed.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>
