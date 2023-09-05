@@ -2,10 +2,10 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Document.Processor" Version="21.1.7" />
+    <PackageReference Include="DevExpress.Document.Processor" Version="23.2.1-alpha-23240" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Documents\Invoice.pdf">
