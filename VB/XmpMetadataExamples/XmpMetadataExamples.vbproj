@@ -5,7 +5,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Document.Processor" Version="21.1.7" />
+    <PackageReference Include="DevExpress.Document.Processor" Version="21.1.12" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Documents\Invoice.pdf">
