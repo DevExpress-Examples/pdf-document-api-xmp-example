@@ -158,7 +158,8 @@ namespace XmpMetadataExamples
             rightsManagementSchema.UsageTerms.AddString("Copyright(C) 2021 DevExpress.All Rights Reserved.", "x-default");
 
             // Export generated metadata to the file:
-            metadata.Serialize(new FileStream("Documents//metadata_new.xml", FileMode.CreateNew, FileAccess.ReadWrite));
+            using (var fileStream = new FileStream("Documents//metadata_new.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite)) 
+                metadata.Serialize(fileStream);
         }
     }
 }

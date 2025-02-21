@@ -5,7 +5,8 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Document.Processor" Version="24.2.1-alpha-24207" />
+    <PackageReference Include="DevExpress.Document.Processor" Version="24.2.5" />
+    <PackageReference Include="DevExpress.Drawing.Skia" Version="24.2.5" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Documents\Invoice.pdf">

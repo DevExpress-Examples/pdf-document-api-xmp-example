@@ -127,7 +127,9 @@ Namespace XmpMetadataExamples
             rightsManagementSchema.WebStatement = "https://www.devexpress.com/support/eulas/"
             rightsManagementSchema.UsageTerms.AddString("Copyright(C) 2021 DevExpress.All Rights Reserved.", "x-default")
             ' Export generated metadata to the file:
-            metadata.Serialize(New FileStream("Documents//metadata_new.xml", FileMode.CreateNew, FileAccess.ReadWrite))
+            Using fileStream As FileStream = New FileStream("Documents//metadata_new.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite)
+                metadata.Serialize(fileStream)
+            End Using
         End Sub
     End Class
 End Namespace
