@@ -30,7 +30,7 @@ Namespace XmpMetadataExamples
                 Dim creatorTool As XmpSimpleNode = editedMetadata.GetSimpleValue("xmp:CreatorTool")
                 creatorTool.SetValue("PDF Document API")
                 ' Add MaxPageSize structure:
-                Dim structureName As XmpName = XmpName.Get("MaxPageSize", "http://ns.adobe.com/xap/1.0/t/pg/")
+                Dim structureName As XmpName = XmpName.[Get]("MaxPageSize", "http://ns.adobe.com/xap/1.0/t/pg/")
                 Dim dimensions As XmpStructure = editedMetadata.CreateStructure(structureName)
                 editedMetadata.RegisterNamespace("http://ns.adobe.com/xap/1.0/sType/Dimensions#", "stDim")
                 dimensions.Add("stDim:h", 11)
